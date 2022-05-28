@@ -1,0 +1,11 @@
+git:
+  submodules: true
+
+git:
+  depth: 10
+
+language: c
+
+script: 
+  make cicd
+  make run_tests

@@ -1,0 +1,191 @@
+mainmenu "mbedCrypto menu config"
+
+
+############################ tests with openssl ############################
+
+config TESTS_WITH_OPENSSL
+    bool "Tests with openssl"
+
+
+############################ build mode ############################
+
+choice BUILD_MODE
+    prompt "Build mode"
+    default BUILD_MODE_RELEASE
+
+config BUILD_MODE_RELEASE
+    bool "release"
+config BUILD_MODE_DEBUG
+    bool "debug"
+endchoice
+
+############################ build warnings ############################
+
+choice BUILD_WARNINGS
+    prompt "Build warnings"
+    default BUILD_WARNINGS_YES
+
+config BUILD_WARNINGS_YES
+    bool "yes"
+config BUILD_WARNINGS_NO
+    bool "no"
+endchoice
+
+############################ security level setup ############################
+
+choice MBCRYPT_SECURITY_LEVEL
+    prompt "Security level"
+    default MBCRYPT_SECURITY_LEVEL_0
+
+config MBCRYPT_SECURITY_LEVEL_0
+    bool "security level 0"
+config MBCRYPT_SECURITY_LEVEL_1
+    bool "security level 1"
+config MBCRYPT_SECURITY_LEVEL_2
+    bool "security level 2"
+endchoice
+
+############################ cryptography algorithms menu ############################
+
+menu "Algorithms setups"
+
+############################ SHA1 setup ############################
+
+config MBCRYPT_SHA1_ENABLE
+    bool "SHA1 enable"
+
+config MBCRYPT_SHA1_MIN_SIZE
+    bool "SHA1 min size release"
+    depends on MBCRYPT_SHA1_ENABLE
+
+config MBCRYPT_SHA1_SELF_TESTS
+    bool "SHA1 self tests"
+    depends on MBCRYPT_SHA1_ENABLE
+
+############################ SHA256 setup ############################
+
+config MBCRYPT_SHA256_ENABLE
+    bool "SHA256 enable"
+
+config MBCRYPT_SHA256_MIN_SIZE
+    bool "SHA256 min size release"
+    depends on MBCRYPT_SHA256_ENABLE
+
+config MBCRYPT_SHA256_SELF_TESTS
+    bool "SHA256 self tests"
+    depends on MBCRYPT_SHA256_ENABLE
+
+############################ SHA512 setup ############################
+
+config MBCRYPT_SHA512_ENABLE
+    bool "SHA512 enable"
+
+config MBCRYPT_SHA512_MIN_SIZE
+    bool "SHA512 min size release"
+    depends on MBCRYPT_SHA512_ENABLE
+
+config MBCRYPT_SHA512_SELF_TESTS
+    bool "SHA512 self tests"
+    depends on MBCRYPT_SHA512_ENABLE
+
+############################ HMAC setup ############################
+
+config MBCRYPT_HMAC_ENABLE
+    bool "HMAC enable"
+
+config MBCRYPT_HMAC_MIN_SIZE
+    bool "HMAC min size release"
+    depends on MBCRYPT_HMAC_ENABLE
+
+config MBCRYPT_HMAC_SELF_TESTS
+    bool "HMAC self tests"
+    depends on MBCRYPT_HMAC_ENABLE
+
+############################ RSA setup ############################
+
+config MBCRYPT_RSA_ENABLE
+    bool "RSA enable"
+
+config MBCRYPT_RSA_MIN_SIZE
+    bool "RSA min size release"
+    depends on MBCRYPT_RSA_ENABLE
+
+config MBCRYPT_RSA_SELF_TESTS
+    bool "RSA self tests"
+    depends on MBCRYPT_RSA_ENABLE
+
+############################ entropy setup ############################
+
+config MBCRYPT_ENTROPY_ENABLE
+    bool "Entropy enable"
+
+config MBCRYPT_ENTROPY_MIN_SIZE
+    bool "Entropy min size release"
+    depends on MBCRYPT_ENTROPY_ENABLE
+
+config MBCRYPT_ENTROPY_SELF_TESTS
+    bool "Entropy self tests"
+    depends on MBCRYPT_ENTROPY_ENABLE
+
+############################ RC4 setup ############################
+
+config MBCRYPT_RC4_ENABLE
+    bool "RC4 enable"
+
+config MBCRYPT_RC4_MIN_SIZE
+    bool "RC4 min size release"
+    depends on MBCRYPT_RC4_ENABLE
+
+config MBCRYPT_RC4_SELF_TESTS
+    bool "RC4 self tests"
+    depends on MBCRYPT_RC4_ENABLE
+
+############################ PBKDF2 setup ############################
+
+config MBCRYPT_PBKDF2_ENABLE
+    bool "PBKDF2 enable"
+
+config MBCRYPT_PBKDF2_MIN_SIZE
+    bool "PBKDF2 min size release"
+    depends on MBCRYPT_PBKDF2_ENABLE
+
+config MBCRYPT_PBKDF2_SELF_TESTS
+    bool "PBKDF2 self tests"
+    depends on MBCRYPT_PBKDF2_ENABLE
+
+############################ KBKDF setup ############################
+config MBCRYPT_KBKDF_ENABLE
+    bool "KBKDF enable"
+
+config MBCRYPT_KBKDF_MIN_SIZE
+    bool "KBKDF min size release"
+    depends on MBCRYPT_KBKDF_ENABLE
+
+config MBCRYPT_KBKDF_SELF_TESTS
+    bool "KBKDF self tests"
+    depends on MBCRYPT_KBKDF_ENABLE
+
+############################ DRBG setup ############################
+
+config MBCRYPT_DRBG_ENABLE
+    bool "DRBG enable"
+
+choice MBCRYPT_DRBG_TYPE
+    prompt "Select drbg type"
+    depends on MBCRYPT_DRBG_ENABLE
+
+config MBCRYPT_DRBG_HASH
+    bool "hash drbg"
+config MBCRYPT_DRBG_HMAC
+    bool "hmac drbg"
+config MBCRYPT_DRBG_CTR
+    bool "counter mode drbg"
+config MBCRYPT_DRBG_UNIX
+    bool "posix drbg"
+endchoice
+
+config MBCRYPT_DRBG_SELF_TESTS
+    bool "DRBG self tests"
+    depends on MBCRYPT_DRBG_ENABLE
+
+endmenu # Algorithms setups #

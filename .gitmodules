@@ -1,0 +1,15 @@
+[submodule "libs"]
+	path = libs
+	url = https://github.com/libtom/libtommath
+[submodule "lib/libtommath"]
+	path = lib/libtommath
+	url = https://github.com/libtom/libtommath
+[submodule "lib/googletest"]
+	path = lib/googletest
+	url = https://github.com/google/googletest
+[submodule "lib/cmocka"]
+	path = lib/cmocka
+	url = https://github.com/clibs/cmocka
+[submodule "lib/CAVP_Tester"]
+	path = lib/CAVP_Tester
+	url = https://github.com/Zontec/CAVP_Tester/
